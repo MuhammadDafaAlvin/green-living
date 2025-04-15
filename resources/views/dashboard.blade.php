@@ -1,18 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold text-white">Dashboard</h2>
+        <h2 class="text-xl font-semibold text-white">Artikel</h2>
     </x-slot>
 
     <div class="py-12 bg-gray-900 min-h-screen text-white">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
-                    <p class="text-gray-300">Selamat datang, {{ Auth::user()->username }}!</p>
-                    <a href="{{ route('profile.edit') }}"
-                        class="mt-4 inline-block bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition">
-                        Edit Profil
-                    </a>
-
                     <!-- Daftar Artikel -->
                     <div class="mt-8">
                         <h3 class="text-lg font-medium">Daftar Artikel</h3>
@@ -24,7 +18,7 @@
                                     <a href="{{ route('articles.show', $article->id) }}"
                                         class="block bg-gray-700 rounded-lg shadow-md hover:shadow-lg transition">
                                         @if ($article->gambar_artikel)
-                                            <img src="{{ asset('storage/' . $article->gambar_artikel) }}"
+                                            <img src="{{ asset('sWtorage/' . $article->gambar_artikel) }}"
                                                 alt="{{ $article->deskripsi_gambar }}"
                                                 class="w-full h-48 object-cover rounded-t-lg">
                                         @else

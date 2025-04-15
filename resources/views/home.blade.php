@@ -1,47 +1,61 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Living</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="bg-gray-100">
-    <header class="bg-green-600 text-white p-4">
-        <nav class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Green Living</h1>
-            <div>
+<x-app-layout>
+    <div class="bg-gray-900 text-white">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-r from-green-800 to-green-600 text-white py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Hidup Hijau, Mulai dari Sekarang</h2>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    Bergabunglah dengan komunitas Green Living untuk menemukan tips, artikel, dan inspirasi gaya hidup ramah lingkungan.
+                </p>
                 @auth
-                    <a href="{{ url('/dashboard') }}" class="mr-4">Dashboard</a>
-                    <form method="POST" action="{{ route('logout') }}" class="inline">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
+                    <a href="{{ route('dashboard') }}"
+                       class="inline-block bg-green-500 text-white py-3 px-8 rounded-md hover:bg-green-600 transition text-lg font-semibold">
+                        Jelajahi Dashboard
+                    </a>
                 @else
-                    <a href="{{ route('login') }}" class="mr-4">Login</a>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}"
+                       class="inline-block bg-green-500 text-white py-3 px-8 rounded-md hover:bg-green-600 transition text-lg font-semibold">
+                        Gabung Sekarang
+                    </a>
                 @endauth
             </div>
-        </nav>
-    </header>
-
-    <main class="container mx-auto mt-8">
-        <h2 class="text-3xl font-bold text-center">Selamat Datang di Green Living</h2>
-        <p class="text-center mt-4">Baca artikel terbaru tentang lingkungan dan cara hidup berkelanjutan.</p>
-
-        <section class="mt-8">
-            <h3 class="text-2xl font-bold">Artikel Terbaru</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                @foreach ($articles as $article)
-                    <div class="bg-white p-4 shadow rounded">
-                        <img src="{{ asset('storage/' . $article->gambar_artikel) }}" alt="{{ $article->deskripsi_gambar }}" class="w-full h-48 object-cover">
-                        <h4 class="text-xl font-bold mt-2">{{ $article->judul }}</h4>
-                        <p class="text-gray-600">{{ $article->deskripsi_sampul }}</p>
-                        <p class="text-sm text-gray-500">Oleh {{ $article->penulis }} | {{ $article->tanggal_publikasi }}</p>
-                    </div>
-                @endforeach
-            </div>
+            <!-- Overlay untuk Efek -->
+            <div class="absolute inset-0 bg-black opacity-30"></div>
         </section>
-    </main>
-</body>
-</html>
+
+        <!-- Fitur Section -->
+        
+
+        <!-- Artikel Section -->
+        <section id="articles" class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-center mb-12">Artikel Terbaru</h3>
+            @if ($articles->isEmpty())
+                <p class="text-center text-gray-400">Belum ada artikel tersedia. Mulai jelajahi nanti!</p>
+            @else
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach ($articles as $article)
+                        <a href="{{ route('articles.show', $article->id) }}"
+                           class="block bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
+                            @if ($article->gambar_artikel)
+                                <img src="{{ asset('storage/' . $article->gambar_artikel) }}"
+                                     alt="{{ $article->deskripsi_gambar }}"
+                                     class="w-full h-48 object-cover rounded-t-lg">
+                            @else
+                                <div class="w-full h-48 bg-gray-700 rounded-t-lg flex items-center justify-center">
+                                    <span class="text-gray-400">Tidak ada gambar</span>
+                                </div>
+                            @endif
+                            <div class="p-6">
+                                <h4 class="text-xl font-semibold text-white mb-2">{{ $article->judul }}</h4>
+                                <p class="text-gray-300 line-clamp-3 mb-4">{{ $article->deskripsi_sampul }}</p>
+                                <p class="text-sm text-gray-400">
+                                    Oleh {{ $article->penulis }} | {{ \Carbon\Carbon::parse($article->tanggal_publikasi)->format('d M Y') }}
+                                </p>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
+        </section>
+    </div>
+</x-app-layout>
