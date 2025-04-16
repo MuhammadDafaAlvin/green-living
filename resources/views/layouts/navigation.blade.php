@@ -1,12 +1,13 @@
-<nav x-data="{ open: false }" class="bg-gray-900">
+<nav x-data="{ open: false }" class="bg-black">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto tracking-tight px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <span class="text-2xl font-bold text-green-500">Green Living</span>
+                        <span class="text-md text-stone-300">Green Living</span>
                     </a>
                 </div>
 
@@ -49,11 +50,11 @@
                     </x-dropdown>
                 @else
                     <a href="{{ route('login') }}"
-                       class="text-gray-300 hover:text-green-400 transition px-3 py-2 rounded-md text-sm font-medium mr-4">
-                        Login
+                       class="text-gray-300 hover:text-gray-100 transition px-4 py-2 rounded-md text-sm font-medium mr-4">
+                        Masuk
                     </a>
                     <a href="{{ route('register') }}"
-                       class="bg-green-500 text-white hover:bg-green-600 transition px-3 py-2 rounded-md text-sm font-medium">
+                       class="bg-gray-600 text-white hover:bg-gray-700 transition px-4 py-2 rounded-md text-sm font-medium">
                         Daftar
                     </a>
                 @endauth

@@ -1,20 +1,16 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold text-white">Edit Profil</h2>
-    </x-slot>
-
-    <div class="py-12 bg-gray-900 min-h-screen text-white">
+    <div class="py-4 bg-black min-h-screen text-stone-300">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-black overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
                     <!-- Pesan Status -->
                     @if (session('status'))
-                        <div class="mb-4 p-4 bg-green-700 text-white rounded-md">
+                        <div class="mb-4 p-4 bg-green-700 text-stone-300 rounded-md">
                             {{ session('status') }}
                         </div>
                     @endif
                     @if (session('error'))
-                        <div class="mb-4 p-4 bg-red-700 text-white rounded-md">
+                        <div class="mb-4 p-4 bg-red-700 text-stone-300 rounded-md">
                             {{ session('error') }}
                         </div>
                     @endif
@@ -30,7 +26,7 @@
                             <div>
                                 <label for="username" class="block text-sm font-medium">Nama Pengguna</label>
                                 <input id="username" name="username" type="text" value="{{ old('username', $user->username) }}" required
-                                    class="mt-1 block w-full border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                                 @error('username')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -41,7 +37,7 @@
                             <div>
                                 <label for="email" class="block text-sm font-medium">Email</label>
                                 <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required
-                                    class="mt-1 block w-full border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                                 @error('email')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -50,7 +46,7 @@
 
                             <div>
                                 <button type="submit"
-                                    class="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition">
+                                    class="bg-green-600 text-stone-300 py-2 px-4 rounded-md hover:bg-green-700 transition">
                                     Simpan Profil
                                 </button>
                             </div>
@@ -68,7 +64,7 @@
                             <div>
                                 <label for="password" class="block text-sm font-medium">Kata Sandi Baru</label>
                                 <input id="password" name="password" type="password"
-                                    class="mt-1 block w-full border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                                 @error('password')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -79,13 +75,13 @@
                             <div>
                                 <label for="password_confirmation" class="block text-sm font-medium">Konfirmasi Kata Sandi</label>
                                 <input id="password_confirmation" name="password_confirmation" type="password"
-                                    class="mt-1 block w-full border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                             </div>
 
                             <div>
                                 <button type="submit"
-                                    class="bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition">
+                                    class="bg-green-600 text-stone-300 py-2 px-4 rounded-md hover:bg-green-700 transition">
                                     Simpan Kata Sandi
                                 </button>
                             </div>
@@ -103,14 +99,14 @@
                             <div>
                                 <label for="password_delete" class="block text-sm font-medium">Kata Sandi</label>
                                 <input id="password_delete" name="password" type="password" required
-                                    class="mt-1 block w-full border border-gray-600 bg-gray-700 text-white rounded-md shadow-sm focus:ring-red-500 focus:border-red-500">
+                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500">
                                 @error('password', 'userDeletion')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
                             </div>
 
                             <button type="submit"
-                                class="mt-4 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition">
+                                class="mt-4 bg-red-600 text-stone-300 py-2 px-4 rounded-md hover:bg-red-700 transition">
                                 Hapus Akun
                             </button>
                         </form>
