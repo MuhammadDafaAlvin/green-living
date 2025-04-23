@@ -15,7 +15,7 @@
                                     <a href="{{ route('articles.show', $article->id) }}"
                                         class="block rounded-lg shadow-md hover:shadow-lg transition ring-1 ring-stone-700">
                                         @if ($article->gambar_artikel)
-                                            <img src="{{ asset('storage/' . $article->gambar_artikel) }}"
+                                            <img src="{{ $article->gambar_artikel }}"
                                                 alt="{{ $article->deskripsi_gambar }}"
                                                 class="w-full h-48 object-cover rounded-t-lg">
                                         @else

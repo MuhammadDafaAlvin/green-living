@@ -1,6 +1,5 @@
 <x-app-layout>
     <div class="bg-black text-white tracking-tight">
-        <!-- Hero Section -->
         <section class="relative text-white py-24">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl lg:mt-8 font-extralight mb-4">Bumi <span class="font-serif italic">Bicara</span>, Kami Menuliskannya.</h2>
@@ -32,7 +31,7 @@
                         <a href="{{ route('articles.show', $article->id) }}"
                            class="block ring-1 ring-gray-700 rounded-lg shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1">
                             @if ($article->gambar_artikel)
-                                <img src="{{ asset('storage/' . $article->gambar_artikel) }}"
+                                <img src="{{ $article->gambar_artikel }}"
                                      alt="{{ $article->deskripsi_gambar }}"
                                      class="w-full h-48 object-cover rounded-t-lg">
                             @else

@@ -4,7 +4,7 @@
             <div class="bg-black overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
                     @if ($article->gambar_artikel)
-                        <img src="{{ asset('storage/' . $article->gambar_artikel) }}"
+                        <img src="{{ $article->gambar_artikel }}"
                             alt="{{ $article->deskripsi_gambar }}"
                             class="w-full h-64 object-cover rounded-lg mb-6">
                     @endif
