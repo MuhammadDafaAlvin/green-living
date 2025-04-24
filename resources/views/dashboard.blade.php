@@ -36,6 +36,9 @@
                         @endif
                     </div>
                 </div>
+                <div class="p-6">
+                    {{ $articles->links() }}
+                </div>
             </div>
         </div>
     </div>
