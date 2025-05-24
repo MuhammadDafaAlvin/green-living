@@ -6,10 +6,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    public function articles()
-    {
-        return $this->hasMany(Article::class);
-    }
     protected $fillable = [
         'username',
         'email',
@@ -20,4 +16,19 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
 }

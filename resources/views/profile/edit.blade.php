@@ -25,8 +25,8 @@
                             <!-- Username -->
                             <div>
                                 <label for="username" class="block text-sm font-medium">Nama Pengguna</label>
-                                <input id="username" name="username" type="text" value="{{ old('username', $user->username) }}" required
-                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                <input id="username" name="username" type="text"
+                                    value="{{ old('username', $user->username) }}" required class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                                 @error('username')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -36,8 +36,8 @@
                             <!-- Email -->
                             <div>
                                 <label for="email" class="block text-sm font-medium">Email</label>
-                                <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required
-                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}"
+                                    required class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                                 @error('email')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -46,7 +46,7 @@
 
                             <div>
                                 <button type="submit"
-                                    class="bg-green-600 text-stone-300 py-2 px-4 rounded-md hover:bg-green-700 transition">
+                                    class="bg-yellow-600 text-stone-300 py-2 px-4 rounded-xl hover:bg-yellow-700 transition">
                                     Simpan Profil
                                 </button>
                             </div>
@@ -63,8 +63,7 @@
                             <!-- Kata Sandi Baru -->
                             <div>
                                 <label for="password" class="block text-sm font-medium">Kata Sandi Baru</label>
-                                <input id="password" name="password" type="password"
-                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                <input id="password" name="password" type="password" class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                                 @error('password')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -73,15 +72,15 @@
 
                             <!-- Konfirmasi Kata Sandi -->
                             <div>
-                                <label for="password_confirmation" class="block text-sm font-medium">Konfirmasi Kata Sandi</label>
-                                <input id="password_confirmation" name="password_confirmation" type="password"
-                                    class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
+                                <label for="password_confirmation" class="block text-sm font-medium">Konfirmasi Kata
+                                    Sandi</label>
+                                <input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full border border-gray-600 bg-black text-stone-300 rounded-md shadow-sm focus:ring-gray-400 focus:border-gray-400
 ">
                             </div>
 
                             <div>
                                 <button type="submit"
-                                    class="bg-green-600 text-stone-300 py-2 px-4 rounded-md hover:bg-green-700 transition">
+                                    class="bg-yellow-600 text-stone-300 py-2 px-4 rounded-xl hover:bg-yellow-700 transition">
                                     Simpan Kata Sandi
                                 </button>
                             </div>
@@ -91,7 +90,8 @@
                     <!-- Form Hapus Akun -->
                     <div class="mt-8 border-t border-gray-600 pt-6">
                         <h3 class="text-lg font-medium">Hapus Akun</h3>
-                        <p class="mt-1 text-sm text-gray-300">Hapus akun Anda secara permanen. Tindakan ini tidak dapat dibatalkan.</p>
+                        <p class="mt-1 text-sm text-gray-300">Hapus akun Anda secara permanen. Tindakan ini tidak dapat
+                            dibatalkan.</p>
                         <form method="POST" action="{{ route('profile.destroy') }}" class="mt-4">
                             @csrf
                             @method('delete')
@@ -106,7 +106,7 @@
                             </div>
 
                             <button type="submit"
-                                class="mt-4 bg-red-600 text-stone-300 py-2 px-4 rounded-md hover:bg-red-700 transition">
+                                class="mt-4 bg-red-600 text-stone-300 py-2 px-4 rounded-xl hover:bg-red-700 transition">
                                 Hapus Akun
                             </button>
                         </form>
