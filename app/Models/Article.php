@@ -9,10 +9,6 @@ class Article extends Model
 {
     use HasFactory;
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
     protected $fillable = [
         'judul',
         'gambar_artikel',
@@ -22,4 +18,19 @@ class Article extends Model
         'isi_deskripsi',
         'tanggal_publikasi',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

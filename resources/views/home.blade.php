@@ -47,6 +47,9 @@
                                     Oleh {{ $article->penulis }} |
                                     {{ \Carbon\Carbon::parse($article->tanggal_publikasi)->format('d M Y') }}
                                 </p>
+                                <p class="text-sm text-gray-500 mt-2">Kategori:
+                                    <span class="font-medium">{{ $article->category->nama_kategori }}</span>
+                                </p>
                             </div>
                         </a>
                     @endforeach

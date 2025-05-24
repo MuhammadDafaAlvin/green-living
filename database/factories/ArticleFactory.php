@@ -25,6 +25,7 @@ class ArticleFactory extends Factory
             'deskripsi_sampul' => fake()->sentence(),
             'isi_deskripsi' => fake()->paragraph(),
             'tanggal_publikasi' => fake()->date(),
+            'category_id' => \App\Models\Category::factory()->create()->id,
         ];
     }
 }

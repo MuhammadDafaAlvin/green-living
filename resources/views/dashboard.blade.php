@@ -52,6 +52,9 @@
                                             <p class="mt-2 text-gray-300 line-clamp-3">
                                                 {{ Str::limit($article->isi_deskripsi, 100) }}
                                             </p>
+                                            <p class="text-sm text-gray-500 mt-2">Kategori:
+                                                <span class="font-medium">{{ $article->category->nama_kategori }}</span>
+                                            </p>
                                             <p class="mt-2 text-sm text-gray-400">
                                                 Diposting pada {{ $article->created_at->format('d M Y') }}
                                             </p>

@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('deskripsi_sampul');
             $table->text('isi_deskripsi');
             $table->string('tanggal_publikasi');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
