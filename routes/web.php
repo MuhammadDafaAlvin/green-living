@@ -6,7 +6,9 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -24,7 +26,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('articles', AdminArticleController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('comments', AdminCommentController::class)->only(['index', 'destroy']);
 });
 
 require __DIR__ . '/auth.php';
-

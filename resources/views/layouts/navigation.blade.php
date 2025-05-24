@@ -1,24 +1,40 @@
 <nav x-data="{ open: false }" class="bg-black">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto tracking-tight px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex items-center">
 
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0">
                     <a href="{{ route('home') }}">
-                        <span class="text-md text-stone-300">Green Living</span>
+                        <span class="text-lg font-bold text-stone-300">Green Living</span>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden sm:flex space-x-8 sm:-my-px sm:ms-10">
                     @auth
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Artikel') }}
-                        </x-nav-link>
+                        @if (auth()->user()->role === 'admin')
+                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('admin.articles.index')" :active="request()->routeIs('admin.articles.*')">
+                                {{ __('Kelola Artikel') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')">
+                                {{ __('Kelola Kategori') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('admin.comments.index')" :active="request()->routeIs('admin.comments.*')">
+                                {{ __('Kelola Komentar') }}
+                            </x-nav-link>
+                        @else
+                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('articles.*')">
+                                {{ __('Artikel') }}
+                            </x-nav-link>
+                        @endif
                     @endauth
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -26,7 +42,7 @@
                 @auth
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-gray-900 hover:text-green-400 focus:outline-none transition">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-gray-900 hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 transition">
                                 <div>{{ Auth::user()->username }}</div>
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
