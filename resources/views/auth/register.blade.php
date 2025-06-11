@@ -9,7 +9,7 @@
                 <input id="username" name="username" type="text" value="{{ old('username') }}" required
                     class="mt-1 block w-full bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-md shadow-sm focus:border-green-500 focus:ring-green-500">
                 @error('username')
-                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -19,7 +19,7 @@
                 <input id="email" name="email" type="email" value="{{ old('email') }}" required
                     class="mt-1 block w-full bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-md shadow-sm focus:border-green-500 focus:ring-green-500">
                 @error('email')
-                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -29,7 +29,7 @@
                 <input id="password" name="password" type="password" required
                     class="mt-1 block w-full bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-md shadow-sm focus:border-green-500 focus:ring-green-500">
                 @error('password')
-                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -43,7 +43,7 @@
             <!-- Submit Button -->
             <div>
                 <button type="submit"
-                    class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-md transition duration-200">
+                    class="w-full bg-yellow-700 hover:bg-yellow-800 text-white font-semibold py-2 px-4 rounded-md transition duration-200">
                     Register
                 </button>
             </div>

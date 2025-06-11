@@ -24,11 +24,12 @@
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
-                        <tr class="border-t border-gray-300 dark:border-gray-700">
-                            <td class="px-4 py-2 text-gray-400">{{ $category->nama_kategori }}</td>
-                            <td class="px-4 py-2 space-x-2 flex items-center">
-                                <a href="{{ route('admin.categories.edit', $category->id) }}"
-                                    class="text-yellow-600 hover:underline">
+                    <tr class="border-t border-gray-300 dark:border-gray-700">
+                        <td class="px-4 py-2 text-gray-400">{{ $category->nama_kategori }}</td>
+                        <td class="px-4 py-2 space-x-2 flex items-center">
+                            <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                class="text-yellow-600">
+                                <div class="flex place-items-center gap-1">
                                     <svg style="--c-400:var(--primary-400);--c-600:var(--primary-600);"
                                         class="fi-link-icon h-4 w-4 text-custom-600 dark:text-custom-400"
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -39,13 +40,15 @@
                                         <path
                                             d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z">
                                         </path>
-                                    </svg>
-                                </a>
-                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST"
-                                    class="inline" onsubmit="return confirm('Yakin ingin menghapus kategori ini?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:underline">
+                                    </svg><span>Edit</span>
+                                </div>
+                            </a>
+                            <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST"
+                                class="inline" onsubmit="return confirm('Yakin ingin menghapus kategori ini?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-600">
+                                    <div class="flex place-items-center gap-1">
                                         <svg style="--c-400:var(--danger-400);--c-600:var(--danger-600);"
                                             wire:loading.remove.delay.default="1"
                                             wire:target="mountTableAction('delete', '1')"
@@ -55,11 +58,12 @@
                                             <path fill-rule="evenodd"
                                                 d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z"
                                                 clip-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                                        </svg><span>Hapus</span>
+                                    </div>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

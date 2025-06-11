@@ -20,6 +20,20 @@
     </div>
 
     <div>
+        <label for="category_id" class="block text-sm font-medium text-gray-300 mb-2">Pilih Kategori</label>
+        <select name="category_id" id="category_id" class="w-full rounded-xl border-none dark:bg-[#292a2b] dark:text-white">
+            <option value="">-- Pilih Kategori --</option>
+            @foreach($categories as $category)
+            <option value="{{ $category->id }}"
+                {{ old('category_id', $article->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                {{ $category->nama_kategori }}
+            </option>
+            @endforeach
+        </select>
+
+    </div>
+
+    <div>
         <label for="penulis" class="block text-sm font-medium text-gray-300 mb-2">Penulis</label>
         <input type="text" name="penulis" id="penulis" value="{{ old('penulis', $article->penulis ?? '') }}"
             class="w-full rounded-xl border-none dark:bg-[#292a2b] dark:text-white" />

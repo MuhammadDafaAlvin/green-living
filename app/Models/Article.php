@@ -16,6 +16,7 @@ class Article extends Model
         'penulis',
         'deskripsi_sampul',
         'isi_deskripsi',
+        'category_id',
         'tanggal_publikasi',
     ];
 

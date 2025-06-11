@@ -22,7 +22,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_kategori' => 'required|string|max:255',
         ]);
 
         Category::create($request->all());
@@ -38,7 +38,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'nama' => 'required|string|max:255',
+            'nama_kategori' => 'required|string|max:255',
         ]);
 
         $category->update($request->all());
@@ -53,4 +53,3 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil dihapus!');
     }
 }
-

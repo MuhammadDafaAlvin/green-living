@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller
 {
@@ -16,7 +17,8 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('admin.articles.create');
+        $categories = Category::all();
+        return view('admin.articles.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -25,6 +27,7 @@ class ArticleController extends Controller
             'judul' => 'required',
             'gambar_artikel' => 'required',
             'deskripsi_gambar' => 'required',
+            'category_id' => 'required|exists:categories,id',
             'penulis' => 'required',
             'deskripsi_sampul' => 'required',
             'isi_deskripsi' => 'required',
@@ -38,7 +41,8 @@ class ArticleController extends Controller
 
     public function edit(Article $article)
     {
-        return view('admin.articles.edit', compact('article'));
+        $categories = Category::all();
+        return view('admin.articles.edit', compact('article', 'categories'));
     }
 
     public function update(Request $request, Article $article)
